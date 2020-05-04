@@ -32,12 +32,6 @@ terminal.ScanProduct("C");
 decimal result = terminal.CalculateTotal();
 
 Unit tests demo:
-1. Scan these items in this order: ABCDABA
-
-Verify that the total price is $13.25
-2. Scan these items in this order: CCCCCCC
-
-Verify that the total price is $6.00
-3. Scan these items in this order: ABCD
-
-Verify that the total price is $7.25
+1. Scan these items in this order: ABCDABA. Verify that the total price is $13.25
+2. Scan these items in this order: CCCCCCC. Verify that the total price is $6.00
+3. Scan these items in this order: ABCD. Verify that the total price is $7.25
