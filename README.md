@@ -3,7 +3,7 @@ A demo project using Net Core Web Api to implement a solution for the following 
 
 Consider a grocery market where items have prices per unit but also volume prices. For example,
 Apples may be $1.25 each, or 3 for $3.
-Implement a class library for a point-of-sale scanning system that accepts an arbitrary ordering of
+Implement an Web API solution for a point-of-sale scanning system that accepts an arbitrary ordering of
 products, similar to what would happen at an actual checkout line, then returns the correct total
 price for an entire shopping cart based on per-unit or volume prices as applicable.
 Here are the products listed by code and the prices to use. There is no sales tax.
