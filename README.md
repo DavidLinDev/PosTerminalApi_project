@@ -9,17 +9,26 @@ price for an entire shopping cart based on per-unit or volume prices as applicab
 Here are the products listed by code and the prices to use. There is no sales tax.
 
 Product Code Price
+
 A $1.25 each, or 3 for $3.00
+
 B $4.25
+
 C $1.00 or $5 for a six-pack
+
 D $0.75
 
 For example,
+
 var terminal = new PointOfSaleTerminal()
+
 terminal.SetPricing(...);
+
 terminal.ScanProduct("A");
+
 terminal.ScanProduct("C");
 // etc
+
 decimal result = terminal.CalculateTotal();
 
 Unit tests demo:
