@@ -35,6 +35,10 @@ namespace DataLayer.Configurations
                 .IsRequired();
 
             builder
+                .Property(m => m.FarmProducer)
+                .HasMaxLength(50);
+
+            builder
                 .ToTable("Products");
         }
     }

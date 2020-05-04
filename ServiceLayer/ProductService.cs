@@ -36,11 +36,18 @@ namespace ServiceLayer
         }
         public async Task UpdateProduct(Product productToBeUpdated, Product product)
         {
+            if (product.Id != 0)
             productToBeUpdated.Id = product.Id;
+            if (product.CodeName != null)
             productToBeUpdated.CodeName = product.CodeName;
+            if (product.UnitPrice != 0)
             productToBeUpdated.UnitPrice = product.UnitPrice;
+            if (product.DiscountQtyBase != 0)
             productToBeUpdated.DiscountQtyBase = product.DiscountQtyBase;
+            if (product.UnitDiscount != 0)
             productToBeUpdated.UnitDiscount = product.UnitDiscount;
+            if (product.FarmProducer != null)
+            productToBeUpdated.FarmProducer = product.FarmProducer;
             await _unitOfWork.CommitAsync();
         }
         public async Task DeleteProduct(Product product)

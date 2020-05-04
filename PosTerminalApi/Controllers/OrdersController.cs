@@ -35,6 +35,7 @@ namespace PosTerminalApi.Controllers
             var orderResources = _mapper.Map<IEnumerable<Order>, IEnumerable<OrderResource>>(orders);
             return Ok(orderResources);
         }
+
         /// <summary>
         /// Retrieves a specific order detail
         /// </summary>
@@ -47,6 +48,7 @@ namespace PosTerminalApi.Controllers
         ///     }
         /// 
         /// </remarks>
+        /// <param name="id"></param>        
         /// <returns>Selected order</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderResource>> GetOrderById(int id)
@@ -56,6 +58,7 @@ namespace PosTerminalApi.Controllers
 
             return Ok(orderResource);
         }
+
         /// <summary>
         /// Create an Order 
         /// </summary>
@@ -91,6 +94,7 @@ namespace PosTerminalApi.Controllers
             
             return Ok(orderResource);
         }
+
         /// <summary>
         /// Deletes a specific order 
         /// </summary>
@@ -103,6 +107,7 @@ namespace PosTerminalApi.Controllers
         ///     }
         /// 
         /// </remarks>
+        /// <param name="id"></param> 
         /// <returns>Deleted existing order</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)

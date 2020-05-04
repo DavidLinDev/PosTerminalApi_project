@@ -21,6 +21,7 @@ namespace PosTerminalApi.Controllers
             this._productService = productService;
             this._mapper = mapper;
         }
+
         /// <summary>
         /// Retrieves all existing products details
         /// </summary>
@@ -28,10 +29,11 @@ namespace PosTerminalApi.Controllers
         [HttpGet("")]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
         {
-            var products = await _productService.GetAllWithProduct();
+            IEnumerable<Product> products = await _productService.GetAllWithProduct();
             var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
             return Ok(productResources);
         }
+
         /// <summary>
         /// Retrieves a specific product detail
         /// </summary>
@@ -44,6 +46,7 @@ namespace PosTerminalApi.Controllers
         ///     }
         /// 
         /// </remarks>
+        /// <param name="id"></param>
         /// <returns>Selected product Item</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductResource>> GetProductById(int id)
@@ -53,6 +56,7 @@ namespace PosTerminalApi.Controllers
 
             return Ok(productResource);
         }
+
         /// <summary>
         /// Retrieves a specific product detail
         /// </summary>
@@ -65,6 +69,7 @@ namespace PosTerminalApi.Controllers
         ///     }
         /// 
         /// </remarks>
+        /// <param name="code"></param>
         /// <returns>Selected product Item</returns>
         [HttpGet("{code}/ProductCode")]
         public async Task<ActionResult<ProductResource>> GetProductByCode(string code)
@@ -74,6 +79,7 @@ namespace PosTerminalApi.Controllers
 
             return Ok(productResource);
         }
+
         /// <summary>
         /// Creates a specific Product 
         /// </summary>
@@ -86,7 +92,8 @@ namespace PosTerminalApi.Controllers
         ///             "codeName": "G",
         ///             "unitPrice": 1,
         ///             "discountQtyBase": 5,
-        ///             "unitDiscount": 4
+        ///             "unitDiscount": 4,
+        ///             "farmProducer":"John Barry"
         ///     }
         /// 
         /// </remarks>
@@ -110,6 +117,7 @@ namespace PosTerminalApi.Controllers
 
             return Ok(productResource);
         }
+
         /// <summary>
         /// Updates a specific product 
         /// </summary>
@@ -121,8 +129,8 @@ namespace PosTerminalApi.Controllers
         ///             "id": 1,
         ///             "codeName": "A",
         ///             "unitPrice": 1.25,
-        ///             "discountQtyBase": 4,
-        ///             "unitDiscount": 4
+        ///             "discountQtyBase": 3,
+        ///             "unitDiscount": 
         ///     }
         /// 
         /// </remarks>
@@ -130,6 +138,16 @@ namespace PosTerminalApi.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<ProductResource>> UpdateProduct(int id, [FromBody] SaveProductResource saveProductResource)
         {
+            var existingProductDetail = await _productService.GetProductById(id);
+            if (existingProductDetail != null)
+            {
+                if (saveProductResource.Id == 0) saveProductResource.Id = existingProductDetail.Id;
+                if (saveProductResource.CodeName == "string") saveProductResource.CodeName = existingProductDetail.CodeName;
+                if (saveProductResource.DiscountQtyBase == 0) saveProductResource.DiscountQtyBase = existingProductDetail.DiscountQtyBase;
+                if (saveProductResource.UnitDiscount == 0) saveProductResource.UnitDiscount = existingProductDetail.UnitDiscount;
+                if (saveProductResource.UnitPrice == 0) saveProductResource.UnitPrice = existingProductDetail.UnitPrice;
+                if (saveProductResource.FarmProducer == "string") saveProductResource.FarmProducer = existingProductDetail.FarmProducer;
+            }
             var validator = new SaveProductResourceValidator();
             var validationResult = await validator.ValidateAsync(saveProductResource);
 
@@ -152,6 +170,7 @@ namespace PosTerminalApi.Controllers
 
             return Ok(updatedProductResource);
         }
+
         /// <summary>
         /// Deletes a specific product 
         /// </summary>
@@ -164,6 +183,7 @@ namespace PosTerminalApi.Controllers
         ///     }
         /// 
         /// </remarks>
+        /// <param name="id"></param>
         /// <returns>Deleted existing product</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)

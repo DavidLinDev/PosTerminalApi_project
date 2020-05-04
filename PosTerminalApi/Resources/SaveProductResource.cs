@@ -8,5 +8,6 @@ namespace PosTerminalApi.Resources
         public decimal UnitPrice { get; set; }
         public int DiscountQtyBase { get; set; }
         public decimal UnitDiscount { get; set; }
+        public string FarmProducer { get; set; }
     }
 }

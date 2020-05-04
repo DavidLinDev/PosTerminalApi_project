@@ -22,6 +22,7 @@
                 }
             
             </remarks>
+            <param name="id"></param>        
             <returns>Selected order</returns>
         </member>
         <member name="M:PosTerminalApi.Controllers.OrdersController.CreateOrder(PosTerminalApi.Resources.SaveOrderResource)">
@@ -55,6 +56,7 @@
                 }
             
             </remarks>
+            <param name="id"></param> 
             <returns>Deleted existing order</returns>
         </member>
         <member name="M:PosTerminalApi.Controllers.ProductsController.GetAllProducts">
@@ -76,6 +78,7 @@
                 }
             
             </remarks>
+            <param name="id"></param>
             <returns>Selected product Item</returns>
         </member>
         <member name="M:PosTerminalApi.Controllers.ProductsController.GetProductByCode(System.String)">
@@ -91,6 +94,7 @@
                 }
             
             </remarks>
+            <param name="code"></param>
             <returns>Selected product Item</returns>
         </member>
         <member name="M:PosTerminalApi.Controllers.ProductsController.CreateProduct(PosTerminalApi.Resources.SaveProductResource)">
@@ -106,7 +110,8 @@
                         "codeName": "G",
                         "unitPrice": 1,
                         "discountQtyBase": 5,
-                        "unitDiscount": 4
+                        "unitDiscount": 4,
+                        "farmProducer":"John Barry"
                 }
             
             </remarks>
@@ -124,8 +129,8 @@
                         "id": 1,
                         "codeName": "A",
                         "unitPrice": 1.25,
-                        "discountQtyBase": 4,
-                        "unitDiscount": 4
+                        "discountQtyBase": 3,
+                        "unitDiscount": 
                 }
             
             </remarks>
@@ -144,6 +149,7 @@
                 }
             
             </remarks>
+            <param name="id"></param>
             <returns>Deleted existing product</returns>
         </member>
     </members>

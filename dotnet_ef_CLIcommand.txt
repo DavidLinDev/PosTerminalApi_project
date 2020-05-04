@@ -1,0 +1,33 @@
+
+
+
+// Initial Model in Sql Db based on Configurations class an create Orders and Products table in Sql Db, 
+
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj migrations add InitialModel -p DataLayer/DataLayer.csproj
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj database update
+
+// Seeding some data in Products table
+
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj migrations add SeedProductsTable -p DataLayer/DataLayer.csproj
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj database update
+
+// Add a new column FarmProducer in Products table
+
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj migrations add AddFarmProducerFieldInProduct -p DataLayer/DataLayer.csproj
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj database update
+
+
+// add a new column Buyer in Orders table
+
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj migrations add AddBuyerFieldInOrder -p DataLayer/DataLayer.csproj
+dotnet ef --startup-project PosTerminalApi/PosTerminalApi.csproj database update
+
+
+
+// Integrated test tool : POSTMAN or  HTTP REPL
+
+// add use Identity in a multi layer application
+<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+using Microsoft.AspNetCore.Identity;
+using MyMusic.Core.Models.Auth; 
+

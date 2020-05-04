@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{1764455E-9796-4CAD-AEF5-1A2BF1B3D8A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTerminalApiTestSuite", "PostTerminalApiTestSuite\PostTerminalApiTestSuite.csproj", "{0213C498-38F5-47E1-ACB7-CFDC56837875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTerminalApiTestSuite", "PostTerminalApiTestSuite\PostTerminalApiTestSuite.csproj", "{0213C498-38F5-47E1-ACB7-CFDC56837875}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,52 @@
+1. core layer
+	. Models
+		. order class
+		. product class
+	. repository
+		. Interface of order repository
+		. Interface of product repository
+		. Interface of repository
+	. services
+		. Interface of order service
+		. Interface of product service
+	. unit of work class
+	
+2. data layer
+	. configurations
+		. order configuration class
+		. product configuration class
+	. migrations
+		. initial models : order , product tables in PosTerminalApi database
+		. seed product table class ( seeding some initial data)
+	. TerminalDbContext class
+	. unit of work class
+
+3. service layer
+	. order service
+	. product service
+	. order item class
+	. PosTerminal class
+
+4. Api controller
+	. controllers
+		. products controller class
+		. orders controller class
+	. mapping
+		. mapping profile class
+	. resources
+		. order resource class
+		. product resource class
+		. save order resource class
+		. save product resource class
+	. validators
+		. save order validator class
+		. save product validator class
+	. app settings development json file
+	. app settings json file
+	. PosTerminalApi xml file
+	. program class (entry point)
+	. start up class (app start up point)
+
+5. PosTerminalApi test suite
+	. unit test 1 (PosTerminal class)
+	. unit test 2 (ProductsController class)

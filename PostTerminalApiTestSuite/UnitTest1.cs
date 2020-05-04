@@ -10,7 +10,7 @@ namespace PostTerminalApiTestSuite
     public class UnitTest1
     {
         [Fact]
-        public async Task Test1Async()
+        public async Task TestPosTermial_ProcessOrder1()
         {
             // Arrange
             var mockProductService = new Mock<IProductService>();
@@ -30,7 +30,7 @@ namespace PostTerminalApiTestSuite
         }
 
         [Fact]
-        public async Task Test2Async()
+        public async Task TestPosTermial_ProcessOrder2()
         {
             // Arrange
             var mockProductService = new Mock<IProductService>();
@@ -50,7 +50,7 @@ namespace PostTerminalApiTestSuite
         }
 
         [Fact]
-        public async Task Test3Async()
+        public async Task TestPosTermial_ProcessOrder3()
         {
             // Arrange
             var mockProductService = new Mock<IProductService>();
