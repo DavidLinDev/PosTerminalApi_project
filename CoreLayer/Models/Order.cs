@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoreLayer.Models
 {
@@ -8,5 +9,8 @@ namespace CoreLayer.Models
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public string OrderedProducts { get; set; }
+
+        [MaxLength(200)]
+        public string CustomerName { get; set; }
     }
 }

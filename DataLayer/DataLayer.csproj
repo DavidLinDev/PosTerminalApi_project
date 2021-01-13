@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210113031936_AddNewField_CustomerName_to_OrderTable.cs" />
+    <Compile Remove="Migrations\20210113031936_AddNewField_CustomerName_to_OrderTable.Designer.cs" />
+    <Compile Remove="Migrations\20210113032436_AddNewField_CustomerName_to_OrderTable.cs" />
+    <Compile Remove="Migrations\20210113032436_AddNewField_CustomerName_to_OrderTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
